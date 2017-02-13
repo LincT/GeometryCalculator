@@ -1,0 +1,9 @@
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\bin\Debug\GeometryCalculator.exe.config
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\bin\Debug\GeometryCalculator.exe
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\bin\Debug\GeometryCalculator.pdb
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.csprojResolveAssemblyReference.cache
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.Form1.resources
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.Properties.Resources.resources
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.csproj.GenerateResource.Cache
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.exe
+c:\users\linc\documents\visual studio 2015\Projects\GeometryCalculator\GeometryCalculator\obj\Debug\GeometryCalculator.pdb
