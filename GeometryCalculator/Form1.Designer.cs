@@ -258,7 +258,7 @@
             this.lblArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblArea.Location = new System.Drawing.Point(252, 242);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(100, 65);
+            this.lblArea.Size = new System.Drawing.Size(100, 106);
             this.lblArea.TabIndex = 8;
             // 
             // txtInput1
