@@ -88,10 +88,8 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Width?";
-                    btnCalculate.Text = "Answer";
+                    setUpSquareInputs();
+                
                 }
                 else
                 {
@@ -115,10 +113,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Width?";
-                    btnCalculate.Text = "Answer";
+                    setUpSquareInputs();
                 }
                 else
                 {
@@ -143,10 +138,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Width?";
-                    btnCalculate.Text = "Answer";
+                    setUpSquareInputs();
                 }
                 else
                 {
@@ -176,13 +168,8 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Length?";
-                    lblInput2.Visible = true;
-                    lblInput2.Text = "Width?";
-                    txtInput2.Visible = true;
-                    btnCalculate.Text = "Answer";
+                    setUpRectangleInputs();
+                   
                 }
                 else
                 {
@@ -206,13 +193,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Length?";
-                    lblInput2.Visible = true;
-                    lblInput2.Text = "Width?";
-                    txtInput2.Visible = true;
-                    btnCalculate.Text = "Answer";
+                    setUpRectangleInputs();
                 }
                 else
                 {
@@ -237,13 +218,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Length?";
-                    lblInput2.Visible = true;
-                    lblInput2.Text = "Width?";
-                    txtInput2.Visible = true;
-                    btnCalculate.Text = "Answer";
+                    setUpRectangleInputs();
                 }
                 else
                 {
@@ -274,10 +249,8 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Radius?";
-                    btnCalculate.Text = "Answer";
+                    setUpCircleInputs();
+                    
                 }
                 else
                 {
@@ -300,10 +273,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Radius?";
-                    btnCalculate.Text = "Answer";
+                    setUpCircleInputs();
                 }
                 else
                 {
@@ -327,10 +297,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblInput1.Visible = true;
-                    txtInput1.Visible = true;
-                    lblInput1.Text = "Radius?";
-                    btnCalculate.Text = "Answer";
+                    setUpCircleInputs();
                 }
                 else
                 {
@@ -432,5 +399,31 @@ namespace GeometryCalculator
         {
             inputInitialize();
         }
+
+        private void setUpSquareInputs()
+        {
+            lblInput1.Visible = true;
+            txtInput1.Visible = true;
+            lblInput1.Text = "Width?";
+            btnCalculate.Text = "Answer";
+        }
+        private void setUpRectangleInputs()
+        {
+            lblInput1.Visible = true;
+            txtInput1.Visible = true;
+            lblInput1.Text = "Length?";
+            lblInput2.Visible = true;
+            lblInput2.Text = "Width?";
+            txtInput2.Visible = true;
+            btnCalculate.Text = "Answer";
+        }
+        private void setUpCircleInputs()
+        {
+            lblInput1.Visible = true;
+            txtInput1.Visible = true;
+            lblInput1.Text = "Radius?";
+            btnCalculate.Text = "Answer";
+        }
     }
+
 }
