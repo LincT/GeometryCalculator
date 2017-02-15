@@ -23,16 +23,6 @@ namespace GeometryCalculator
 
         }
 
-        private void getShape(RadioButton rbtnShape)
-        {
-            MessageBox.Show(rbtnShape.Text);
-        }
-
-        private void getChoice(RadioButton rbtnChoice)
-        {
-            MessageBox.Show(rbtnChoice.Text);
-        }
-
         private void inputInitialize()
         {
             // sets everything back to an initial state.
@@ -50,6 +40,8 @@ namespace GeometryCalculator
             lblInput4.Visible = false;
             lblArea.Visible = false;
             btnCalculate.Text = "Calculate";
+            pbFormula.Image = null;
+            pbShape.Image = null;
 
         }
         // our good old friend the exit button
@@ -66,6 +58,7 @@ namespace GeometryCalculator
             
             if (((RadioButton)sender).Checked)
                 shape =(((RadioButton)sender).Text);
+            showShape();
         }
         private void radioButton_CheckedChanged2(object sender, EventArgs e)
         {
@@ -74,6 +67,7 @@ namespace GeometryCalculator
 
             if (((RadioButton)sender).Checked)
                 choice = (((RadioButton)sender).Text);
+            showShape();
         }
         private void btnCalculate_Click(object sender, EventArgs e)
         {
@@ -282,7 +276,7 @@ namespace GeometryCalculator
                     result = "";
                     if ((Decimal.TryParse(txtInput1.Text, out input)))
                     {
-                        result += "Perimeter: ";
+                        result += "Circumference: ";
                         result += Convert.ToString(circlePerimeter(input));
                         lblArea.Visible = true;
                         lblArea.Text = result;
@@ -309,7 +303,7 @@ namespace GeometryCalculator
                         result += "Area: ";
                         result += Convert.ToString(circleArea(input));
                         result += "\n";
-                        result += "Perimeter: ";
+                        result += "Circumference: ";
                         result += Convert.ToString(circlePerimeter(input));
                         lblArea.Visible = true;
                         lblArea.Text = result;
@@ -327,6 +321,7 @@ namespace GeometryCalculator
             //<triangles>
             else if (shape == "Triangle" && choice == "Area")
             {
+                pbShape.Visible = true;
                 if (btnCalculate.Text == "Calculate")
                 {
                     lblInput1.Visible = true;
@@ -357,6 +352,7 @@ namespace GeometryCalculator
             }
             else if (shape == "Triangle" && choice == "Perimeter")
             {
+                pbShape.Visible = true;
                 if (btnCalculate.Text == "Calculate")
                 {
                     lblInput1.Visible = true;
@@ -438,6 +434,106 @@ namespace GeometryCalculator
             //</triangles>
 
             //<parallelograms>
+            else if (shape == "Parallelogram" && choice == "Area")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Height?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Base?";
+                    txtInput2.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input, input2;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)))
+                    {
+                        result += "Area: ";
+                        result += Convert.ToString(parallelogramArea(input, input2));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
+            else if (shape == "Parallelogram" && choice == "Perimeter")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Side A";
+                    
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Side B";
+                    txtInput2.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input,input2;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)))
+                    {
+                        result += "Perimeter: ";
+                        result += Convert.ToString(parallelogramPerimeter(input, input2));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                        //MessageBox.Show(result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
+            else if (shape == "Parallelogram" && choice == "Area and Perimeter")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Base?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Side B";
+                    txtInput2.Visible = true;
+                    lblInput3.Visible = true;
+                    lblInput3.Text = "Height?";
+                    txtInput3.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input, input2,input3;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)) &&
+                        (Decimal.TryParse(txtInput3.Text, out input3)))
+                    {
+                        result += "Area: ";
+                        result += Convert.ToString(parallelogramArea(input, input3));
+                        result += "\n";
+                        result += "Perimeter: ";
+                        result += Convert.ToString(parallelogramPerimeter(input, input2));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                        //MessageBox.Show(result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
             //<parallelograms>
 
             //<rhombi>
@@ -535,10 +631,225 @@ namespace GeometryCalculator
             //</rhombi>
 
             //<trapezoids>
+            else if (shape == "Trapezoid" && choice == "Area")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Side A?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Segment B?";
+                    txtInput2.Visible = true;
+                    lblInput3.Visible = true;
+                    lblInput3.Text = "Segment C";
+                    txtInput3.Visible = true;
+                    lblInput4.Visible = true;
+                    lblInput4.Text = "Height?";
+                    txtInput4.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input, input2,input3,input4;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2))&&
+                        (Decimal.TryParse(txtInput3.Text, out input3))&&
+                        (Decimal.TryParse(txtInput4.Text, out input4)))
+                    {
+                        result += "Area: ";
+                        result += Convert.ToString(trapezoidArea(input, input2,input3,input4));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
+            else if (shape == "Trapezoid" && choice == "Perimeter")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Side A?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Segment B?";
+                    txtInput2.Visible = true;
+                    lblInput3.Visible = true;
+                    lblInput3.Text = "Segment C";
+                    txtInput3.Visible = true;
+                    lblInput4.Visible = true;
+                    lblInput4.Text = "Height?";
+                    txtInput4.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input,input2,input3,input4;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)) &&
+                        (Decimal.TryParse(txtInput3.Text, out input3)) &&
+                        (Decimal.TryParse(txtInput4.Text, out input4)))
+                    {
+                        result += "Perimeter: ";
+                        result += Convert.ToString(trapezoidPerimeter(input,input2,input3,input4));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                        //MessageBox.Show(result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
+            else if (shape == "Trapezoid" && choice == "Area and Perimeter")
+            {
+                if (btnCalculate.Text == "Calculate")
+                {
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "Side A?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Segment B?";
+                    txtInput2.Visible = true;
+                    lblInput3.Visible = true;
+                    lblInput3.Text = "Segment C";
+                    txtInput3.Visible = true;
+                    lblInput4.Visible = true;
+                    lblInput4.Text = "Height?";
+                    txtInput4.Visible = true;
+                    btnCalculate.Text = "Answer";
+                }
+                else
+                {
+                    decimal input, input2,input3,input4;
+                    result = "";
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)) &&
+                        (Decimal.TryParse(txtInput3.Text, out input3)) &&
+                        (Decimal.TryParse(txtInput4.Text, out input4)))
+                    {
+                        result += "Area: ";
+                        result += Convert.ToString(trapezoidArea(input, input2,input3,input4));
+                        result += "\n";
+                        result += "Perimeter: ";
+                        result += Convert.ToString(trapezoidPerimeter(input, input2,input3,input4));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+                        //MessageBox.Show(result);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please verify valid value entered");
+                    }
+                }
+            }
             //</trapezoids>
+            //<none shapes>
+            else if (choice == "modulus" && btnCalculate.Text != "Calculate")
+            { 
+                decimal input, input2;
+                result = "";
+                if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                    (Decimal.TryParse(txtInput2.Text, out input2)))
+                {
+                    result += "Modulus result:\n";
+                    result += Convert.ToString(modulusCalc(input, input2));
+                    lblArea.Visible = true;
+                    lblArea.Text = result;
+                }
+                else
+                {
+                    MessageBox.Show("Please verify valid value entered");
+                }
+            }
+            else if (choice == "percentage" && btnCalculate.Text != "Calculate")
+            {
+                decimal input, input2;
+                result = "";
+                if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                    (Decimal.TryParse(txtInput2.Text, out input2)))
+                {
+                    result += "percentage result:\n";
+                    result += Convert.ToString(percentageCalc(input, input2));
+                    lblArea.Visible = true;
+                    lblArea.Text = result;
+                }
+                else
+                {
+                    MessageBox.Show("Please verify valid value entered");
+                }
+            }
+            else if (choice == "exponent" && btnCalculate.Text != "Calculate")
+            {
+                decimal input, input2;
+                result = "";
+                if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                    (Decimal.TryParse(txtInput2.Text, out input2)))
+                {
+                    result += "exponential result:\n";
+                    result += Convert.ToString(exponentCalc(input, input2));
+                    lblArea.Visible = true;
+                    lblArea.Text = result;
+                }
+                else
+                {
+                    MessageBox.Show("Please verify valid value entered");
+                }
+            }
+
+            //<none shapes>
 
 
         }//closing brace for buttonCalculate click
+
+        //modulus, exponents, and percentage buttons
+        private void btnModulus_Click(object sender, EventArgs e)
+        {
+            inputInitialize();
+            choice = "modulus";
+            btnCalculate.Text = "Answer";
+            txtInput1.Visible = true;
+            lblInput1.Visible = true;
+            lblInput1.Text = "Numerator?";
+            txtInput2.Visible = true;
+            lblInput2.Visible = true;
+            lblInput2.Text = "Denominator?";
+            
+
+        }
+
+        private void btnPercentage_Click(object sender, EventArgs e)
+        {
+            inputInitialize();
+            choice = "percentage";
+            btnCalculate.Text = "Answer";
+            txtInput1.Visible = true;
+            lblInput1.Visible = true;
+            lblInput1.Text = "Whole?";
+            txtInput2.Visible = true;
+            lblInput2.Visible = true;
+            lblInput2.Text = "Percent?";
+        }
+
+        private void btnExponent_Click(object sender, EventArgs e)
+        {
+            inputInitialize();
+            choice = "exponent";
+            btnCalculate.Text = "Answer";
+            txtInput1.Visible = true;
+            lblInput1.Visible = true;
+            lblInput1.Text = "Base?";
+            txtInput2.Visible = true;
+            lblInput2.Visible = true;
+            lblInput2.Text = "Power?";
+        }
 
         //Calculation methods, some reused for more than one shape
         public decimal rectangleArea(decimal length, decimal width)
@@ -596,18 +907,41 @@ namespace GeometryCalculator
             calculation = length * width;
             return calculation;
         }
-        public decimal trapezoidArea(decimal top, decimal bottom,decimal height)
+        public decimal trapezoidArea(decimal top, decimal bottom1, decimal bottom2, decimal height)//remember to check for which text boxes to pull from
         {
             decimal calculation;
-            calculation = ((top + bottom) / 2) * height;
+            calculation = ((top + (bottom1 + bottom2)) / 2) * height;
             return calculation;
         }
-        public decimal trapezoidPerimeter(decimal sideA, decimal sideB, decimal sideC, decimal sideD)
+
+        public decimal trapezoidPerimeter(decimal top, decimal bottom1, decimal bottom2, decimal height)
         {
             decimal calculation;
-            calculation = sideA + sideB + sideC + sideD;
+            decimal sideB = bottom1 + bottom2;
+            decimal sideC = Convert.ToDecimal((Math.Sqrt(Convert.ToDouble((height * height) + (bottom1 - top)))));
+            decimal sideD = (Convert.ToDecimal(Math.Sqrt(Convert.ToDouble((height * height) + (bottom2 * bottom2)))));
+            calculation = top + sideB + sideC + sideD;
             return calculation;
         }
+
+        private decimal percentageCalc(decimal whole, decimal percent)
+        {
+            decimal total = (whole * percent) / 100;
+            return total;
+        }
+
+        private decimal modulusCalc(decimal numerator, decimal denominator)
+        {
+            decimal total = numerator % denominator;
+            return total;
+        }
+
+        private decimal exponentCalc(decimal number, decimal exponent)
+        {
+            decimal total = Convert.ToDecimal(Math.Pow(Convert.ToDouble(number), Convert.ToDouble(exponent)));
+            return total;
+        }
+
         //end of the calculation functions
         private void btnClear_Click(object sender, EventArgs e)
         {
@@ -639,10 +973,82 @@ namespace GeometryCalculator
             btnCalculate.Text = "Answer";
         }
 
+       
+
         //<private void for shape images>
+        private void showShape()
+        {
+            try
+            {
+                switch (shape)
+                {
+                    case "Triangle":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgTriangle;
+                        break;
+                    case "Rhombus":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgRhombus;
+                        break;
+                    case "Rectangle":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgRectangle;
+                        break;
+                    case "Circle":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgCircle;
+                        break;
+                    case "Square":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgSquare;
+                        break;
+                    case "Parallelogram":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgParallelogram;
+                        break;
+                    case "Trapezoid":
+                        pbShape.Image = GeometryCalculator.Properties.Resources.imgTrapezoid;
+                        break;
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No File");
+            }
+        }
         //</private void for shape images>
 
         //<private void for formula images>
+        private void showFormulae()
+        {
+            try//Work in progress
+            {
+                switch (shape)
+                {
+                    case "Triangle":
+                        
+                        break;
+                    case "Rhombus":
+                        
+                        break;
+                    case "Rectangle":
+                        
+                        break;
+                    case "Circle":
+                        
+                        break;
+                    case "Square":
+                        
+                        break;
+                    case "Parallelogram":
+                        
+                        break;
+                    case "Trapezoid":
+                        
+                        break;
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("No File");
+            }
+        }
         //</private void for formula images>
 
     }

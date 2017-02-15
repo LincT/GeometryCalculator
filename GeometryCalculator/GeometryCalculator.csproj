@@ -65,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +79,69 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\circleArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\circlePerimeter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgCircle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgParallelogram.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgRectangle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgRhombus.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgSquare.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgTrapezoid.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\imgTriangle.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\parallelogramArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\parallelogramPerimeter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\rectArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\rectPerimeter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\rhombusArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\rhombusPerimeter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\squareArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\squarePerimeter.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\trapezoidArea.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\trapezoidPerimeter.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\triangleArea.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Pics\trianglePerimeter.JPG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

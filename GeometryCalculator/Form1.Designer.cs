@@ -54,6 +54,10 @@
             this.lblInput3 = new System.Windows.Forms.Label();
             this.lblInput4 = new System.Windows.Forms.Label();
             this.pbFormula = new System.Windows.Forms.PictureBox();
+            this.lblCredits = new System.Windows.Forms.Label();
+            this.btnModulus = new System.Windows.Forms.Button();
+            this.btnPercentage = new System.Windows.Forms.Button();
+            this.btnExponent = new System.Windows.Forms.Button();
             this.grpShapes.SuspendLayout();
             this.grpOptions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbShape)).BeginInit();
@@ -69,7 +73,7 @@
             this.grpShapes.Controls.Add(this.rbtnRectange);
             this.grpShapes.Controls.Add(this.rbtnSquare);
             this.grpShapes.Controls.Add(this.rbtnTriangle);
-            this.grpShapes.Location = new System.Drawing.Point(8, 3);
+            this.grpShapes.Location = new System.Drawing.Point(12, 50);
             this.grpShapes.Name = "grpShapes";
             this.grpShapes.Size = new System.Drawing.Size(200, 112);
             this.grpShapes.TabIndex = 0;
@@ -165,7 +169,7 @@
             this.grpOptions.Controls.Add(this.rbtnBothAreaPerimeter);
             this.grpOptions.Controls.Add(this.rbtnPerimeter);
             this.grpOptions.Controls.Add(this.rbtnArea);
-            this.grpOptions.Location = new System.Drawing.Point(8, 114);
+            this.grpOptions.Location = new System.Drawing.Point(12, 161);
             this.grpOptions.Name = "grpOptions";
             this.grpOptions.Size = new System.Drawing.Size(87, 117);
             this.grpOptions.TabIndex = 1;
@@ -209,7 +213,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(12, 237);
+            this.btnCalculate.Location = new System.Drawing.Point(16, 284);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(59, 29);
             this.btnCalculate.TabIndex = 2;
@@ -219,7 +223,7 @@
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(77, 237);
+            this.btnClear.Location = new System.Drawing.Point(16, 319);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(59, 29);
             this.btnClear.TabIndex = 3;
@@ -230,7 +234,7 @@
             // btnExit
             // 
             this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnExit.Location = new System.Drawing.Point(142, 237);
+            this.btnExit.Location = new System.Drawing.Point(16, 354);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(59, 29);
             this.btnExit.TabIndex = 4;
@@ -240,7 +244,9 @@
             // 
             // pbShape
             // 
-            this.pbShape.Location = new System.Drawing.Point(214, 3);
+            this.pbShape.Image = global::GeometryCalculator.Properties.Resources.imgTriangle;
+            this.pbShape.InitialImage = null;
+            this.pbShape.Location = new System.Drawing.Point(218, 50);
             this.pbShape.Name = "pbShape";
             this.pbShape.Size = new System.Drawing.Size(134, 112);
             this.pbShape.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -250,42 +256,42 @@
             // lblArea
             // 
             this.lblArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblArea.Location = new System.Drawing.Point(248, 195);
+            this.lblArea.Location = new System.Drawing.Point(252, 242);
             this.lblArea.Name = "lblArea";
             this.lblArea.Size = new System.Drawing.Size(100, 65);
             this.lblArea.TabIndex = 8;
             // 
             // txtInput1
             // 
-            this.txtInput1.Location = new System.Drawing.Point(181, 121);
+            this.txtInput1.Location = new System.Drawing.Point(185, 168);
             this.txtInput1.Name = "txtInput1";
             this.txtInput1.Size = new System.Drawing.Size(61, 20);
             this.txtInput1.TabIndex = 10;
             // 
             // txtInput2
             // 
-            this.txtInput2.Location = new System.Drawing.Point(181, 147);
+            this.txtInput2.Location = new System.Drawing.Point(185, 194);
             this.txtInput2.Name = "txtInput2";
             this.txtInput2.Size = new System.Drawing.Size(61, 20);
             this.txtInput2.TabIndex = 11;
             // 
             // txtInput3
             // 
-            this.txtInput3.Location = new System.Drawing.Point(181, 173);
+            this.txtInput3.Location = new System.Drawing.Point(185, 220);
             this.txtInput3.Name = "txtInput3";
             this.txtInput3.Size = new System.Drawing.Size(61, 20);
             this.txtInput3.TabIndex = 12;
             // 
             // txtInput4
             // 
-            this.txtInput4.Location = new System.Drawing.Point(181, 199);
+            this.txtInput4.Location = new System.Drawing.Point(185, 246);
             this.txtInput4.Name = "txtInput4";
             this.txtInput4.Size = new System.Drawing.Size(61, 20);
             this.txtInput4.TabIndex = 13;
             // 
             // lblInput1
             // 
-            this.lblInput1.Location = new System.Drawing.Point(101, 128);
+            this.lblInput1.Location = new System.Drawing.Point(105, 175);
             this.lblInput1.Name = "lblInput1";
             this.lblInput1.Size = new System.Drawing.Size(74, 13);
             this.lblInput1.TabIndex = 14;
@@ -293,7 +299,7 @@
             // 
             // lblInput2
             // 
-            this.lblInput2.Location = new System.Drawing.Point(101, 154);
+            this.lblInput2.Location = new System.Drawing.Point(105, 201);
             this.lblInput2.Name = "lblInput2";
             this.lblInput2.Size = new System.Drawing.Size(74, 13);
             this.lblInput2.TabIndex = 15;
@@ -301,7 +307,7 @@
             // 
             // lblInput3
             // 
-            this.lblInput3.Location = new System.Drawing.Point(101, 180);
+            this.lblInput3.Location = new System.Drawing.Point(105, 227);
             this.lblInput3.Name = "lblInput3";
             this.lblInput3.Size = new System.Drawing.Size(74, 13);
             this.lblInput3.TabIndex = 16;
@@ -309,7 +315,7 @@
             // 
             // lblInput4
             // 
-            this.lblInput4.Location = new System.Drawing.Point(101, 206);
+            this.lblInput4.Location = new System.Drawing.Point(105, 253);
             this.lblInput4.Name = "lblInput4";
             this.lblInput4.Size = new System.Drawing.Size(74, 13);
             this.lblInput4.TabIndex = 17;
@@ -317,12 +323,51 @@
             // 
             // pbFormula
             // 
-            this.pbFormula.Location = new System.Drawing.Point(248, 120);
+            this.pbFormula.Location = new System.Drawing.Point(252, 167);
             this.pbFormula.Name = "pbFormula";
             this.pbFormula.Size = new System.Drawing.Size(100, 62);
             this.pbFormula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFormula.TabIndex = 18;
             this.pbFormula.TabStop = false;
+            // 
+            // lblCredits
+            // 
+            this.lblCredits.AutoSize = true;
+            this.lblCredits.Location = new System.Drawing.Point(343, 0);
+            this.lblCredits.Name = "lblCredits";
+            this.lblCredits.Size = new System.Drawing.Size(197, 26);
+            this.lblCredits.TabIndex = 19;
+            this.lblCredits.Text = "Heather, Joe, Stephanie, Kayla\r\nGeometry Formulas Calculator & extended";
+            // 
+            // btnModulus
+            // 
+            this.btnModulus.Location = new System.Drawing.Point(81, 284);
+            this.btnModulus.Name = "btnModulus";
+            this.btnModulus.Size = new System.Drawing.Size(81, 29);
+            this.btnModulus.TabIndex = 20;
+            this.btnModulus.Text = "Remainder";
+            this.btnModulus.UseVisualStyleBackColor = true;
+            this.btnModulus.Click += new System.EventHandler(this.btnModulus_Click);
+            // 
+            // btnPercentage
+            // 
+            this.btnPercentage.Location = new System.Drawing.Point(81, 319);
+            this.btnPercentage.Name = "btnPercentage";
+            this.btnPercentage.Size = new System.Drawing.Size(81, 29);
+            this.btnPercentage.TabIndex = 21;
+            this.btnPercentage.Text = "Percentage";
+            this.btnPercentage.UseVisualStyleBackColor = true;
+            this.btnPercentage.Click += new System.EventHandler(this.btnPercentage_Click);
+            // 
+            // btnExponent
+            // 
+            this.btnExponent.Location = new System.Drawing.Point(81, 354);
+            this.btnExponent.Name = "btnExponent";
+            this.btnExponent.Size = new System.Drawing.Size(81, 29);
+            this.btnExponent.TabIndex = 22;
+            this.btnExponent.Text = "X^Y";
+            this.btnExponent.UseVisualStyleBackColor = true;
+            this.btnExponent.Click += new System.EventHandler(this.btnExponent_Click);
             // 
             // Form1
             // 
@@ -330,7 +375,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnExit;
-            this.ClientSize = new System.Drawing.Size(360, 269);
+            this.ClientSize = new System.Drawing.Size(547, 391);
+            this.Controls.Add(this.btnExponent);
+            this.Controls.Add(this.btnPercentage);
+            this.Controls.Add(this.btnModulus);
+            this.Controls.Add(this.lblCredits);
             this.Controls.Add(this.pbFormula);
             this.Controls.Add(this.lblInput4);
             this.Controls.Add(this.lblInput3);
@@ -388,6 +437,10 @@
         private System.Windows.Forms.Label lblInput3;
         private System.Windows.Forms.Label lblInput4;
         private System.Windows.Forms.PictureBox pbFormula;
+        private System.Windows.Forms.Label lblCredits;
+        private System.Windows.Forms.Button btnModulus;
+        private System.Windows.Forms.Button btnPercentage;
+        private System.Windows.Forms.Button btnExponent;
     }
 }
 
