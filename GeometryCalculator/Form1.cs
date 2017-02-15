@@ -441,15 +441,15 @@ namespace GeometryCalculator
             //<parallelograms>
 
             //<rhombi>
-            else if (shape == "Rectangle" && choice == "Area")
+            else if (shape == "Rhombus" && choice == "Area")
             {
                 if (btnCalculate.Text == "Calculate")
                 {
                     lblInput1.Visible = true;
                     txtInput1.Visible = true;
-                    lblInput1.Text = "Length?";
+                    lblInput1.Text = "Height?";
                     lblInput2.Visible = true;
-                    lblInput2.Text = "Width?";
+                    lblInput2.Text = "Base?";
                     txtInput2.Visible = true;
                     btnCalculate.Text = "Answer";
                 }
@@ -461,7 +461,7 @@ namespace GeometryCalculator
                         (Decimal.TryParse(txtInput2.Text, out input2)))
                     {
                         result += "Area: ";
-                        result += Convert.ToString(rectangleArea(input, input2));
+                        result += Convert.ToString(parallelogramArea(input, input2));
                         lblArea.Visible = true;
                         lblArea.Text = result;
                     }
@@ -471,27 +471,23 @@ namespace GeometryCalculator
                     }
                 }
             }
-            else if (shape == "Rectangle" && choice == "Perimeter")
+            else if (shape == "Rhombus" && choice == "Perimeter")
             {
                 if (btnCalculate.Text == "Calculate")
                 {
                     lblInput1.Visible = true;
                     txtInput1.Visible = true;
-                    lblInput1.Text = "Length?";
-                    lblInput2.Visible = true;
-                    lblInput2.Text = "Width?";
-                    txtInput2.Visible = true;
+                    lblInput1.Text = "Side A";
                     btnCalculate.Text = "Answer";
                 }
                 else
                 {
-                    decimal input, input2;
+                    decimal input;
                     result = "";
-                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
-                        (Decimal.TryParse(txtInput2.Text, out input2)))
+                    if ((Decimal.TryParse(txtInput1.Text, out input)))
                     {
                         result += "Perimeter: ";
-                        result += Convert.ToString(rectanglePerimeter(input, input2));
+                        result += Convert.ToString(parallelogramPerimeter(input, input));
                         lblArea.Visible = true;
                         lblArea.Text = result;
                         //MessageBox.Show(result);
@@ -508,17 +504,21 @@ namespace GeometryCalculator
                 {
                     lblInput1.Visible = true;
                     txtInput1.Visible = true;
-                    lblInput1.Text = "side length?";
+                    lblInput1.Text = "Base?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Height?";
+                    txtInput2.Visible = true;
                     btnCalculate.Text = "Answer";
                 }
                 else
                 {
-                    decimal input;
+                    decimal input,input2;
                     result = "";
-                    if ((Decimal.TryParse(txtInput1.Text, out input)))
+                    if ((Decimal.TryParse(txtInput1.Text, out input)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input2)))
                     {
                         result += "Area: ";
-                        result += Convert.ToString(parallelogramArea(input, input));
+                        result += Convert.ToString(parallelogramArea(input, input2));
                         result += "\n";
                         result += "Perimeter: ";
                         result += Convert.ToString(parallelogramPerimeter(input, input));
@@ -638,6 +638,13 @@ namespace GeometryCalculator
             lblInput1.Text = "Radius?";
             btnCalculate.Text = "Answer";
         }
+
+        //<private void for shape images>
+        //</private void for shape images>
+
+        //<private void for formula images>
+        //</private void for formula images>
+
     }
 
 }
