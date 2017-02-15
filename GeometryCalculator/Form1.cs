@@ -394,20 +394,37 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    lblArea.Text = "Function Missing";
-                    lblArea.Visible = true;
+                    lblInput1.Visible = true;
+                    txtInput1.Visible = true;
+                    lblInput1.Text = "SideA?";
+                    lblInput2.Visible = true;
+                    lblInput2.Text = "Base?";
+                    txtInput2.Visible = true;
+                    lblInput3.Visible = true;
+                    lblInput3.Text = "SideC?";
+                    txtInput3.Visible = true;
+                    lblInput4.Visible = true;
+                    lblInput4.Text = "Height?";
+                    txtInput4.Visible = true;
+                    btnCalculate.Text = "Answer";
                 }
                 else
                 {
-                    decimal input, input2;
+                    decimal input, input2,input3,input4;
                     result = "";
                     if ((Decimal.TryParse(txtInput1.Text, out input)) &&
-                        (Decimal.TryParse(txtInput2.Text, out input2)))
+                        (Decimal.TryParse(txtInput2.Text, out input2)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input3)) &&
+                        (Decimal.TryParse(txtInput2.Text, out input4)))
                     {
                         result += "Area: ";
+                        result += Convert.ToString(triangleArea(input2,input4));
                         result += "\n";
                         result += "Perimeter: ";
-                        
+                        result += Convert.ToString(trianglePerimeter(input,input2,input3));
+                        lblArea.Visible = true;
+                        lblArea.Text = result;
+
                         lblArea.Visible = true;
                         lblArea.Text = result;
                         //MessageBox.Show(result);
