@@ -171,7 +171,7 @@
             this.grpOptions.Controls.Add(this.rbtnArea);
             this.grpOptions.Location = new System.Drawing.Point(12, 161);
             this.grpOptions.Name = "grpOptions";
-            this.grpOptions.Size = new System.Drawing.Size(87, 117);
+            this.grpOptions.Size = new System.Drawing.Size(200, 117);
             this.grpOptions.TabIndex = 1;
             this.grpOptions.TabStop = false;
             this.grpOptions.Text = "Options";
@@ -244,54 +244,56 @@
             // 
             // pbShape
             // 
+            this.pbShape.BackColor = System.Drawing.Color.White;
             this.pbShape.Image = global::GeometryCalculator.Properties.Resources.imgTriangle;
             this.pbShape.InitialImage = null;
             this.pbShape.Location = new System.Drawing.Point(218, 50);
             this.pbShape.Name = "pbShape";
-            this.pbShape.Size = new System.Drawing.Size(134, 112);
+            this.pbShape.Size = new System.Drawing.Size(317, 112);
             this.pbShape.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbShape.TabIndex = 5;
             this.pbShape.TabStop = false;
             // 
             // lblArea
             // 
+            this.lblArea.BackColor = System.Drawing.Color.White;
             this.lblArea.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblArea.Location = new System.Drawing.Point(252, 242);
+            this.lblArea.Location = new System.Drawing.Point(346, 276);
             this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(100, 106);
+            this.lblArea.Size = new System.Drawing.Size(189, 106);
             this.lblArea.TabIndex = 8;
             // 
             // txtInput1
             // 
-            this.txtInput1.Location = new System.Drawing.Point(185, 168);
+            this.txtInput1.Location = new System.Drawing.Point(269, 276);
             this.txtInput1.Name = "txtInput1";
             this.txtInput1.Size = new System.Drawing.Size(61, 20);
             this.txtInput1.TabIndex = 10;
             // 
             // txtInput2
             // 
-            this.txtInput2.Location = new System.Drawing.Point(185, 194);
+            this.txtInput2.Location = new System.Drawing.Point(269, 302);
             this.txtInput2.Name = "txtInput2";
             this.txtInput2.Size = new System.Drawing.Size(61, 20);
             this.txtInput2.TabIndex = 11;
             // 
             // txtInput3
             // 
-            this.txtInput3.Location = new System.Drawing.Point(185, 220);
+            this.txtInput3.Location = new System.Drawing.Point(269, 328);
             this.txtInput3.Name = "txtInput3";
             this.txtInput3.Size = new System.Drawing.Size(61, 20);
             this.txtInput3.TabIndex = 12;
             // 
             // txtInput4
             // 
-            this.txtInput4.Location = new System.Drawing.Point(185, 246);
+            this.txtInput4.Location = new System.Drawing.Point(269, 354);
             this.txtInput4.Name = "txtInput4";
             this.txtInput4.Size = new System.Drawing.Size(61, 20);
             this.txtInput4.TabIndex = 13;
             // 
             // lblInput1
             // 
-            this.lblInput1.Location = new System.Drawing.Point(105, 175);
+            this.lblInput1.Location = new System.Drawing.Point(189, 283);
             this.lblInput1.Name = "lblInput1";
             this.lblInput1.Size = new System.Drawing.Size(74, 13);
             this.lblInput1.TabIndex = 14;
@@ -299,7 +301,7 @@
             // 
             // lblInput2
             // 
-            this.lblInput2.Location = new System.Drawing.Point(105, 201);
+            this.lblInput2.Location = new System.Drawing.Point(189, 309);
             this.lblInput2.Name = "lblInput2";
             this.lblInput2.Size = new System.Drawing.Size(74, 13);
             this.lblInput2.TabIndex = 15;
@@ -307,7 +309,7 @@
             // 
             // lblInput3
             // 
-            this.lblInput3.Location = new System.Drawing.Point(105, 227);
+            this.lblInput3.Location = new System.Drawing.Point(189, 335);
             this.lblInput3.Name = "lblInput3";
             this.lblInput3.Size = new System.Drawing.Size(74, 13);
             this.lblInput3.TabIndex = 16;
@@ -315,7 +317,7 @@
             // 
             // lblInput4
             // 
-            this.lblInput4.Location = new System.Drawing.Point(105, 253);
+            this.lblInput4.Location = new System.Drawing.Point(189, 361);
             this.lblInput4.Name = "lblInput4";
             this.lblInput4.Size = new System.Drawing.Size(74, 13);
             this.lblInput4.TabIndex = 17;
@@ -323,9 +325,10 @@
             // 
             // pbFormula
             // 
-            this.pbFormula.Location = new System.Drawing.Point(252, 167);
+            this.pbFormula.BackColor = System.Drawing.Color.White;
+            this.pbFormula.Location = new System.Drawing.Point(218, 161);
             this.pbFormula.Name = "pbFormula";
-            this.pbFormula.Size = new System.Drawing.Size(100, 62);
+            this.pbFormula.Size = new System.Drawing.Size(317, 109);
             this.pbFormula.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbFormula.TabIndex = 18;
             this.pbFormula.TabStop = false;
