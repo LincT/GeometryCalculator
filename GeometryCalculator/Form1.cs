@@ -59,6 +59,7 @@ namespace GeometryCalculator
             if (((RadioButton)sender).Checked)
                 shape =(((RadioButton)sender).Text);
             showShape();
+            showFormulae();
         }
         private void radioButton_CheckedChanged2(object sender, EventArgs e)
         {
@@ -68,6 +69,7 @@ namespace GeometryCalculator
             if (((RadioButton)sender).Checked)
                 choice = (((RadioButton)sender).Text);
             showShape();
+            showFormulae();
         }
         private void btnCalculate_Click(object sender, EventArgs e)
         {
@@ -1015,31 +1017,119 @@ namespace GeometryCalculator
 
         //<private void for formula images>
         private void showFormulae()
+        //picture box is one option, the other is switch to a label of the same size,
+        //convert formulae to text, then for the both option concatenate the 
+        //formulae to display with labels for which is which. 
         {
-            try//Work in progress
+            try
             {
                 switch (shape)
                 {
                     case "Triangle":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.triangleArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.trianglePerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
+
                         break;
                     case "Rhombus":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.rhombusArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.rhombusPerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
                     case "Rectangle":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.rectArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.rectPerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
                     case "Circle":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.circleArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.circlePerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
                     case "Square":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.squareArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.squarePerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
                     case "Parallelogram":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.parallelogramArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.parallelogramPerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
                     case "Trapezoid":
-                        
+                        if (choice == "Area")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.trapezoidArea;
+                        }
+                        else if (choice == "Perimeter")
+                        {
+                            pbFormula.Image = GeometryCalculator.Properties.Resources.trapezoidPerimeter;
+                        }
+                        else
+                        {
+                            pbFormula.Image = null;
+                            
+                        }
                         break;
 
                 }
