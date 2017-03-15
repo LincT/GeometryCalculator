@@ -76,7 +76,8 @@ namespace GeometryCalculator
             /* 
              * There's probably a better way to do this, but a case for each
              * combination of shape and choice. within each case is a check whether the
-             * calculate button is in calculate or answer mode.             
+             * calculate button is in calculate or answer mode.
+             * sections marked as <section></section>     
              */
 
             //<Squares>
