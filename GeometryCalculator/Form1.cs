@@ -24,21 +24,44 @@ namespace GeometryCalculator
 
         }
 
+        private void setUpInputs(string parms)
+        {
+            int i = 0;
+            List<string> inputs = parms.Split(',').ToList();
+            foreach (Control c in this.Controls)
+            {
+                if (c.Name == ("lblInput" + Convert.ToString(i + 1)))
+                {
+                    ((Label)c).Visible = true;
+                    ((Label)c).Text = inputs.ElementAt(i);
+                    btnCalculate.Text = "Answer";
+                    
+                }
+                else if (c.Name == ("txtInput" + Convert.ToString(i+1)))
+                {
+                    ((TextBox)c).Visible = true;
+                    i++;
+                }
+                if (i >= inputs.Count) { break; }
+            }
+
+        }
+
         private void inputInitialize()
         {
             // sets everything back to an initial state.
-            txtInput1.Visible = false;
-            txtInput1.Text = "";
-            txtInput2.Visible = false;
-            txtInput2.Text = "";
-            txtInput3.Visible = false;
-            txtInput3.Text = "";
-            txtInput4.Visible = false;
-            txtInput4.Text = "";
-            lblInput1.Visible = false;
-            lblInput2.Visible = false;
-            lblInput3.Visible = false;
-            lblInput4.Visible = false;
+            foreach (Control c in Controls)
+            {
+                if (c is TextBox)
+                {
+                    ((TextBox)c).Text = "";
+                    ((TextBox)c).Visible = false;
+                }
+                if (c is Label)
+                {
+                    ((Label)c).Visible = false;
+                }
+            }
             lblArea.Visible = false;
             btnCalculate.Text = "Calculate";
             pbFormula.Image = null;
@@ -86,8 +109,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpSquareInputs();
-                
+                    setUpInputs("Width?");
                 }
                 else
                 {
@@ -97,7 +119,6 @@ namespace GeometryCalculator
                     {
                         result += "Area: ";
                         result += Convert.ToString(rectangleArea(input, input));
-                        //MessageBox.Show(Convert.ToString(rectangleArea(input, input)));
                         lblArea.Visible = true;
                         lblArea.Text = result;
                     }
@@ -111,7 +132,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpSquareInputs();
+                    setUpInputs("Width?");
                 }
                 else
                 {
@@ -136,7 +157,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpSquareInputs();
+                    setUpInputs("Width?");
                 }
                 else
                 {
@@ -166,8 +187,9 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpRectangleInputs();
-                   
+                    
+                    setUpInputs("Length ?,Width ?");
+
                 }
                 else
                 {
@@ -191,7 +213,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpRectangleInputs();
+                    setUpInputs("Length ?,Width ?");
                 }
                 else
                 {
@@ -216,7 +238,7 @@ namespace GeometryCalculator
             {
                 if (btnCalculate.Text == "Calculate")
                 {
-                    setUpRectangleInputs();
+                    setUpInputs("Length ?,Width ?");
                 }
                 else
                 {
@@ -1140,6 +1162,11 @@ namespace GeometryCalculator
             {
                 MessageBox.Show("No File");
             }
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
         //</private void for formula images>
 

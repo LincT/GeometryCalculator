@@ -401,6 +401,7 @@
             this.Controls.Add(this.grpShapes);
             this.Name = "Form1";
             this.Text = "Geometry Calculator";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.grpShapes.ResumeLayout(false);
             this.grpShapes.PerformLayout();
             this.grpOptions.ResumeLayout(false);
