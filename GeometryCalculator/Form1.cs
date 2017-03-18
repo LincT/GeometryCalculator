@@ -12,6 +12,7 @@ namespace GeometryCalculator
 {
     public partial class Form1 : Form
     {
+        //test comment, testing new branch
         string shape = ""; //container for shape choice. 
         string choice = ""; //container for choice of area|perimeter|both
         string result = ""; //empty string for a concatenated return
