@@ -19,19 +19,20 @@ namespace GeometryCalculator
         string result = ""; //empty string for a concatenated return
 
         public Form1()
-        {
-            InitializeComponent();
-            inputInitialize();
-
-        }
+        {InitializeComponent();}
 
         private void setUpInputs(string parms)
         {
-            int i = 1;
+            int i = 1;//iterator, starts at 1 as named controls start w/ 1
+
+            //make a list of what inputs are needed and what to label them
             List<string> inputs = parms.Split(',').ToList();
+
             SortedList<string, Control> formControls = new SortedList<string, Control> { };
             foreach (Control c in this.Controls)
             {
+                //because calling a control directly by name apparently isn't a thing in C#?, 
+                //populate a sorted list with controls to be referenced by name.
                 formControls.Add(c.Name, c);
             }
             foreach (string myStr in inputs)
@@ -41,14 +42,12 @@ namespace GeometryCalculator
                 formControls["txtInput" + Convert.ToString(i)].Visible = true;
                 btnCalculate.Text = "Answer";
             i++;
-                
             }
-
         }
 
         private void inputInitialize()
         {
-            // sets everything back to an initial state.
+            // sets everything to an initial default state.
             foreach (Control c in Controls)
             {
                 if (c is TextBox)
@@ -65,14 +64,11 @@ namespace GeometryCalculator
             btnCalculate.Text = "Calculate";
             pbFormula.Image = null;
             pbShape.Image = null;
-
         }
+
         // our good old friend the exit button
         private void btnExit_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        {this.Close();}
 
         private void radioButton_CheckedChanged(object sender, EventArgs e)
         {
@@ -96,14 +92,8 @@ namespace GeometryCalculator
         }
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            /* 
-             * There's probably a better way to do this, but a case for each
-             * combination of shape and choice. within each case is a check whether the
-             * calculate button is in calculate or answer mode.
-             * sections marked as <section></section>     
-             */
-
-            //<Squares>
+             // within each case is a check whether the calculate button is in 
+             // calculate or answer mode to control whether we're getting or processing data
             switch (shape)
             {
                 case "Square":
@@ -153,7 +143,6 @@ namespace GeometryCalculator
                                 MessageBox.Show("Please verify valid value entered");
                             }
                         }
-
                     }
                     else if (choice == "Area and Perimeter")
                     {
@@ -180,13 +169,8 @@ namespace GeometryCalculator
                                 MessageBox.Show("Please verify valid value entered");
                             }
                         }
-
                     }
                     break;
-                
-                //</Squares>
-
-                //<Rectangles>
                 case "Rectangle":
                     if (choice == "Area")
                     {
@@ -264,9 +248,6 @@ namespace GeometryCalculator
                         }
                     }
                     break;
-                //</Rectangles>
-
-                //<Circles>
                 case "Circle":
 
                     if (choice == "Area")
@@ -342,9 +323,6 @@ namespace GeometryCalculator
                         }
                     }
                     break;
-                //</Circles>
-
-                //<triangles>
                 case "Triangle":
                     if (choice == "Area")
                     {
@@ -429,10 +407,7 @@ namespace GeometryCalculator
                             }
                         }
                     }
-                    //</triangles>
                     break;
-
-                //<parallelograms>
                 case "Parallelogram":
                     if (choice == "Area")
                     {
@@ -510,9 +485,7 @@ namespace GeometryCalculator
                             }
                         }
                     }
-                    //<parallelograms>
                     break;
-                //<rhombi>
                 case "Rhombus":
                     if (choice == "Area")
                     {
@@ -581,7 +554,6 @@ namespace GeometryCalculator
                                 result += Convert.ToString(parallelogramPerimeter(input, input));
                                 lblArea.Visible = true;
                                 lblArea.Text = result;
-
                             }
                             else
                             {
@@ -589,9 +561,7 @@ namespace GeometryCalculator
                             }
                         }
                     }
-                    //</rhombi>
                     break;
-                //<trapezoids>
                 case "Trapezoid":
                     if (choice == "Area")
                     {
@@ -624,7 +594,6 @@ namespace GeometryCalculator
                         if (btnCalculate.Text == "Calculate")
                         {
                             setUpInputs("Side A?,Segment B?,Segment C?,Height?");
-
                         }
                         else
                         {
@@ -639,7 +608,6 @@ namespace GeometryCalculator
                                 result += Convert.ToString(trapezoidPerimeter(input, input2, input3, input4));
                                 lblArea.Visible = true;
                                 lblArea.Text = result;
-
                             }
                             else
                             {
@@ -669,7 +637,6 @@ namespace GeometryCalculator
                                 result += Convert.ToString(trapezoidPerimeter(input, input2, input3, input4));
                                 lblArea.Visible = true;
                                 lblArea.Text = result;
-
                             }
                             else
                             {
@@ -677,9 +644,7 @@ namespace GeometryCalculator
                             }
                         }
                     }
-                    //</trapezoids>
                     break;
-                   
             }  
         //<non-shapes> use special handling since shape selection irrelevant.
             if (choice == "modulus" && btnCalculate.Text != "Calculate")
@@ -733,11 +698,7 @@ namespace GeometryCalculator
                     MessageBox.Show("Please verify valid value entered");
                 }
             }
-
-            //<none shapes>
-
-
-        }//closing brace for buttonCalculate click
+        }
 
         //modulus, exponents, and percentage buttons
         private void btnModulus_Click(object sender, EventArgs e)
@@ -817,7 +778,7 @@ namespace GeometryCalculator
             calculation = length * width;
             return calculation;
         }
-        public decimal trapezoidArea(decimal top, decimal bottom1, decimal bottom2, decimal height)//remember to check for which text boxes to pull from
+        public decimal trapezoidArea(decimal top, decimal bottom1, decimal bottom2, decimal height)
         {
             decimal calculation;
             calculation = ((top + (bottom1 + bottom2)) / 2) * height;
@@ -848,15 +809,14 @@ namespace GeometryCalculator
 
         private decimal exponentCalc(decimal number, decimal exponent)
         {
-            decimal total = Convert.ToDecimal(Math.Pow(Convert.ToDouble(number), Convert.ToDouble(exponent)));
+            decimal total = Convert.ToDecimal(Math.Pow(Convert.ToDouble(number), 
+                Convert.ToDouble(exponent)));
             return total;
         }
 
         //end of the calculation functions
         private void btnClear_Click(object sender, EventArgs e)
-        {
-            inputInitialize();
-        }
+        {inputInitialize();}
 
         //<private void for shape images>
         private void showShape()
@@ -886,13 +846,10 @@ namespace GeometryCalculator
                     case "Trapezoid":
                         pbShape.Image = GeometryCalculator.Properties.Resources.imgTrapezoid;
                         break;
-
                 }
             }
             catch
-            {
-                MessageBox.Show("No File");
-            }
+            {MessageBox.Show("No File");}
         }
         //</private void for shape images>
 
@@ -905,126 +862,72 @@ namespace GeometryCalculator
                 {
                     case "Triangle":
                         if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.triangleArea;
-                        }
+                        { pbFormula.Image = Properties.Resources.triangleArea; }
                         else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.trianglePerimeter;
-                        }
+                        { pbFormula.Image = Properties.Resources.trianglePerimeter; }
                         else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-
+                        { pbFormula.Image = null; }
                         break;
+
                     case "Rhombus":
                         if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.rhombusArea;
-                        }
+                        { pbFormula.Image = Properties.Resources.rhombusArea; }
                         else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.rhombusPerimeter;
-                        }
+                        { pbFormula.Image = Properties.Resources.rhombusPerimeter;}
                         else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-                        break;
-                    case "Rectangle":
-                        if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.rectArea;
-                        }
-                        else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.rectPerimeter;
-                        }
-                        else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-                        break;
-                    case "Circle":
-                        if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.circleArea;
-                        }
-                        else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.circlePerimeter;
-                        }
-                        else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-                        break;
-                    case "Square":
-                        if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.squareArea;
-                        }
-                        else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.squarePerimeter;
-                        }
-                        else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-                        break;
-                    case "Parallelogram":
-                        if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.parallelogramArea;
-                        }
-                        else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.parallelogramPerimeter;
-                        }
-                        else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
-                        break;
-                    case "Trapezoid":
-                        if (choice == "Area")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.trapezoidArea;
-                        }
-                        else if (choice == "Perimeter")
-                        {
-                            pbFormula.Image = GeometryCalculator.Properties.Resources.trapezoidPerimeter;
-                        }
-                        else
-                        {
-                            pbFormula.Image = null;
-                            
-                        }
+                        { pbFormula.Image = null;}
                         break;
 
+                    case "Rectangle":
+                        if (choice == "Area")
+                        {pbFormula.Image = Properties.Resources.rectArea;}
+                        else if (choice == "Perimeter")
+                        {pbFormula.Image = Properties.Resources.rectPerimeter;}
+                        else
+                        {pbFormula.Image = null;}
+                        break;
+
+                    case "Circle":
+                        if (choice == "Area")
+                        {pbFormula.Image = Properties.Resources.circleArea;}
+                        else if (choice == "Perimeter")
+                        {pbFormula.Image = Properties.Resources.circlePerimeter;}
+                        else
+                        {pbFormula.Image = null;}
+                        break;
+
+                    case "Square":
+                        if (choice == "Area")
+                        {pbFormula.Image = Properties.Resources.squareArea;}
+                        else if (choice == "Perimeter")
+                        {pbFormula.Image = Properties.Resources.squarePerimeter;}
+                        else
+                        {pbFormula.Image = null;}
+                        break;
+
+                    case "Parallelogram":
+                        if (choice == "Area")
+                        {pbFormula.Image = Properties.Resources.parallelogramArea;}
+                        else if (choice == "Perimeter")
+                        {pbFormula.Image = Properties.Resources.parallelogramPerimeter;}
+                        else {pbFormula.Image = null;}
+                        break;
+
+                    case "Trapezoid":
+                        if (choice == "Area")
+                        {pbFormula.Image = Properties.Resources.trapezoidArea;}
+                        else if (choice == "Perimeter")
+                        {pbFormula.Image = Properties.Resources.trapezoidPerimeter;}
+                        else
+                        {pbFormula.Image = null;}
+                        break;
                 }
             }
             catch
-            {
-                MessageBox.Show("No File");
-            }
+            { MessageBox.Show("No File"); }
         }
-        //</private void for formula images>
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-        
-
+        {inputInitialize();}
     }
-
 }
